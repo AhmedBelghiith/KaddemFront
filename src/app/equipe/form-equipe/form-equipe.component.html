@@ -1,0 +1,62 @@
+<br>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">{{action}} equipe</h4>
+                  </div>
+                </div>
+                <br>
+                <form #f="ngForm">
+                    <div class="form-group col-md-6">
+                        <label>Nom equipe</label>
+                        <input type="text" [(ngModel)]="equipe.nomEquipe" name="nomEquipe"
+                        class="form-control" required minlength="3" pattern="[a-zA-Z]{3,12}$"
+                         #t="ngModel">
+                        <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+                            <div *ngIf="t.hasError('required')">this field is required</div>
+                            <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+                            <div *ngIf="t.hasError('pattern')">error pattern</div>
+                        </div>
+                      </div>
+                    <div class="form-group col-md-6">
+                        <label>Niveau</label>
+                        <select [(ngModel)]="equipe.niveau" name="niveau" class="form-control" required #s="ngModel">
+                          <option value="JUNIOR">JUNIOR</option>
+                          <option value="SENIOR">SENIOR</option>
+                          <option value="EXPERT">EXPERT</option>
+                        </select>
+                        <div class="alert alert-danger" *ngIf="s.invalid && s.touched">
+                          <div *ngIf="s.hasError('required')">This field is required</div>
+                      </div>
+                      </div>
+                 <!-- <div class="form-group col-md-6">
+                    <label>DetailEquipe</label>
+                    <input [(ngModel)]="equipe.detailEquipe" type="number" name="detailEquipe" required class="form-control" required #m="ngModel" min="1" max="999">
+                    <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
+                      <div *ngIf="m.hasError('required')">This field is required</div>
+                      <div *ngIf="m.hasError('min')">id minimal = 1</div>
+                      <div *ngIf="m.hasError('max')">id maximal = 999</div>
+                  </div>
+                  </div>-->
+                  <br>
+                  <div class="offset-md-1">
+                    <button class="btn btn-success" (click)="add(); goToEquipeList();" [disabled]="f.invalid">
+                      save
+                    </button>
+                    &nbsp;
+                    <button type="reset" class="btn btn-warning">
+                      reset
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="delete()">delete</button>
+                  </div>
+                  
+                </form>
+              </div>
+          </div>
+  </div>
+</div>

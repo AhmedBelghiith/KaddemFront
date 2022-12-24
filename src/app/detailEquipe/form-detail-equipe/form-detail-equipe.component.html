@@ -1,0 +1,48 @@
+<br>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">{{action}} detail equipe</h4>
+                  </div>
+                </div>
+                <br>
+                <form #f="ngForm">
+                  <div class="form-group col-md-6">
+                      <label>Salle</label>
+                      <input type="text" [(ngModel)]="detailEquipe.salle" name="salle"
+                      class="form-control" required minlength="2" #t="ngModel">
+                      <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+                          <div *ngIf="t.hasError('required')">this field is required</div>
+                          <div *ngIf="t.hasError('minlength')">minlength = 2!</div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Thematique</label>
+                      <input type="text" [(ngModel)]="detailEquipe.thematique" name="thematique"
+                      class="form-control" required minlength="3" #t="ngModel">
+                      <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+                          <div *ngIf="t.hasError('required')">this field is required</div>
+                          <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+                      </div>
+                    </div>
+                <br>
+                <div class="" style="padding-left: 10px;">
+                <button class="btn btn-success" (click)="add(); goToDetailEquipeList();" [disabled]="f.invalid">
+                  save
+                </button>
+                &nbsp;
+                <button type="reset" class="btn btn-warning">
+                  reset
+                </button>
+                &nbsp;
+                <button class="btn btn-danger" (click)="delete()">delete</button>
+              </div>
+              </form>
+              </div>
+          </div>
+  </div>
+</div>

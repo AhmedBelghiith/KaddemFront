@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { ListDetailEquipeComponent } from './list-detail-equipe/list-detail-equipe.component';\nexport var DetailEquipeRoutes = [{\n  path: '',\n  children: [{\n    path: 'list-detail-equipe',\n    component: ListDetailEquipeComponent\n  }]\n}];","map":null,"metadata":{},"sourceType":"module"}

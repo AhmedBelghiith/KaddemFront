@@ -1,0 +1,4 @@
+<div class="search-container" >
+    
+    <input [ngClass]="{changeBackground: enteredSearchValue != ''}" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()" type="search" placeholder="Search"><span> you search about {{enteredSearchValue}}</span>
+</div>

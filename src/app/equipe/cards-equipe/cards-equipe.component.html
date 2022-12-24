@@ -1,0 +1,37 @@
+<div class="container" style="padding-top: 100px;">
+    <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+    <br>
+    <div class="tab-content wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+        <div role="tabpanel" class="tab-pane fade show active" id="yearly">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 mb-30" *ngFor="let eq of listEquipe">
+                    <div class="price-item text-center" *ngIf="searchText === '' || eq.nomEquipe.toLowerCase().includes(searchText)">
+                        <div class="price-top">
+                            <h3>{{eq.nomEquipe}}</h3>
+                            <h4 class="mb-0">#{{eq.idEquipe}}</h4>
+                        </div>
+                        <div class="price-content">
+                            <div class="card" style="width: 18rem; background-color: #00b5ec;" >
+                                <div class="card-header" style="font-size: large; color: white;" >
+                                  Etudiants
+                                </div>
+                                <ul class="list-group list-group-flush" *ngFor="let e of eq?.etudiants">
+                                  <i class="c-bloc"></i><li class="list-group-item" style="color: white; font-size: medium;">{{e?.prenomE}}  {{e?.nomE}} note: {{e?.note}}</li>
+                                </ul>
+                                <div>
+                                    <button class="btn" style="background-color: white; color: #00b5ec;" (click)="getMoyenneEquipe(eq.idEquipe);">
+                                        Moyenne equipe
+                                    </button>
+                                </div>
+                              </div>
+
+                              <button class="btn" style="background-color: #00b5ec; color: white;" (click)="getEquipeDetailEquipe(eq.idEquipe);">
+                                Detail Equipe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

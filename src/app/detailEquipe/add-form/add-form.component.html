@@ -1,0 +1,57 @@
+<br>
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">{{action}} detail equipe</h4>
+                  </div>
+                </div>
+                <br>
+                <form style="padding-left: 250" #form="ngForm" (ngSubmit)="addAndAffectContract(form)">
+
+                    <div class="form-group col-md-6">
+                        <label>Salle</label>
+                        <input [(ngModel)]="detailEquipe.salle"
+                            type="number" name="salle" required class="form-control" required #m="ngModel" min="1"
+                            max="90" />
+                        <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
+                            <div *ngIf="m.hasError('required')">This field is required</div>
+                            <div *ngIf="m.hasError('min')">Min salle = 1</div>
+                            <div *ngIf="m.hasError('max')">Max salle = 90</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Thematique</label>
+                        <input [(ngModel)]="detailEquipe.thematique" type="text" name="thematique" required
+                            class="form-control" required #z="ngModel" />
+                        <div class="alert alert-danger" *ngIf="z.invalid && z.touched">
+                            <div *ngIf="z.hasError('required')">This field is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Equipe</label>
+                        <select [(ngModel)]="detailEquipe.equipe" name="equipe" class="form-control" required
+                            (change)=" ChangeIdDetailEquipe($event)">
+                            <option *ngFor="let eq of listEquipe;" [value]="eq.idEquipe">{{ eq.idEquipe }}
+                            </option>
+                        </select>
+                    </div>
+            
+                    <br />
+                    <div id="buttons">
+                        <button class="btn btn-success" [disabled]="form.invalid">
+                            save
+                        </button>
+                        &nbsp;
+                        <button [disabled]="isUnchanged" type="reset" class="btn btn-warning">
+                            reset
+                        </button>
+                    </div>
+                </form>
+              </div>
+          </div>
+  </div>
+</div>
