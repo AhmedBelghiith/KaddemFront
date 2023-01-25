@@ -15,7 +15,7 @@
 7. Navigate to [localhost:4200](localhost:4200)
 
 ## Documentation
-The documentation for the Material Dashboard Angular is [website]([https://demos.creative-tim.com/material-dashboard-pro-angular2/documentation/tutorial](https://material.angular.io)).
+The documentation for the Material Dashboard Angular is on [website]([https://material.angular.io](https://material.angular.io)).
 
 ## Browser Support
 
